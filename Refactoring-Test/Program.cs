@@ -7,38 +7,50 @@ namespace Refactoring_Test
         static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
+        }
+    }
 
+    public class ProductCatalogMapper
+    {
+        public ProductCatalog map(ProductCatalogInternal productCatalogInternal)
+        {
+            ProductCatalog result = new ProductCatalog();
+            result.Product = map(productCatalogInternal.productInternal);
+            return result;
+        }
 
+        public Product map(ProductInternal productInternal)
+        {
+            return null;
         }
     }
 
     public class XmlGenerator
     {
-        public static string MapToXml(ProductCatalogInternal productCatalogInternal)
-        {
-            var productCatalog = map(productCatalogInternal);
+        private ProductCatalogMapper _productCatalogMapper;
 
-            return ToXmlVoodoStuff(productCatalog);
+        public XmlGenerator(ProductCatalogMapper productCatalogMapper)
+        {
+            _productCatalogMapper = productCatalogMapper;
         }
 
-        private static string ToXmlVoodoStuff(ProductCatalog productCatalog)
+        public string MapAndXml(ProductCatalogInternal productCatalogInternal)
         {
-            return "";
+            var productCatalog = _productCatalogMapper.map(productCatalogInternal);
+
+            return ToXml(productCatalog);
         }
 
-
-        public static ProductCatalog map(ProductCatalogInternal productCatalogInternal)
+        private string ToXml(ProductCatalog productCatalog)
         {
-            ProductCatalog result = new ProductCatalog();
-            result.Product = mapProduct(productCatalogInternal.productInternal);
-            return result;
-        }
-
-        private static Product mapProduct(ProductInternal productInternal)
-        {
-            return null;
+            return "<xml> <somebody>";
         }
     }
+
+
+
+    // -------------------------------
+
 
     public class ProductInternal
     {

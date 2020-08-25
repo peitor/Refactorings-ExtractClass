@@ -8,7 +8,19 @@ namespace Tests
         [Test]
         public void TestMapToXML()
         {
-            string productCatalogAsString = XmlGenerator.MapToXml(new ProductCatalogInternal());
+            string productCatalogAsString =
+                new XmlGenerator(new ProductCatalogMapper())
+                    .MapAndXml(new ProductCatalogInternal());
+
+            Assert.Pass();
+        }
+
+
+
+        [Test]
+        public void TestMapProductCatalog()
+        {
+            var result = new ProductCatalogMapper().map(new ProductCatalogInternal());
 
             Assert.Pass();
         }
@@ -16,7 +28,7 @@ namespace Tests
         [Test]
         public void TestMapProduct()
         {
-            var productCatalogAsString = XmlGenerator.map(new ProductCatalogInternal());
+            var result = new ProductCatalogMapper().map(new ProductInternal());
 
             Assert.Pass();
         }
