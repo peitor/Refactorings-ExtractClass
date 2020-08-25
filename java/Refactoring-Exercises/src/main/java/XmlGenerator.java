@@ -1,28 +1,19 @@
 public class XmlGenerator
 {
-    public static String MapToXml(ProductCatalogInternal productCatalogInternal)
+    private final ProductMapper productMapper = new ProductMapper();
+
+    public  String MapToXml(ProductCatalogInternal productCatalogInternal)
     {
-        ProductCatalog productCatalog = map(productCatalogInternal);
+        ProductCatalog productCatalog = productMapper.map(productCatalogInternal);
 
         return ToXmlVoodoStuff(productCatalog);
     }
 
-    private static String ToXmlVoodoStuff(ProductCatalog productCatalog)
+    private String ToXmlVoodoStuff(ProductCatalog productCatalog)
     {
         return "";
     }
 
 
-    public static ProductCatalog map(ProductCatalogInternal productCatalogInternal)
-    {
-        ProductCatalog result = new ProductCatalog();
-        result.Product = mapProduct(productCatalogInternal.productInternal);
-        return result;
-    }
-
-    private static Product mapProduct(ProductInternal productInternal)
-    {
-        return null;
-    }
 }
 

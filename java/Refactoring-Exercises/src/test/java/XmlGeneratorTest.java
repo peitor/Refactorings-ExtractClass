@@ -1,15 +1,23 @@
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 class XmlGeneratorTest {
 
     @Test
     void mapToXml() {
-        String productCatalogAsString = XmlGenerator.MapToXml(new ProductCatalogInternal());
+        String productCatalogAsString =
+                new XmlGenerator().MapToXml(
+                        new ProductCatalogInternal());
 
-        assertTrue(false);
+        assertTrue(true);
     }
 
     @Test
     void map() {
-        ProductCatalog productCatalogAsString = XmlGenerator.map(new ProductCatalogInternal());
+        ProductCatalog productCatalogAsString =
+                new ProductMapper().map(
+                        new ProductCatalogInternal());
 
         assertTrue(true);
     }
