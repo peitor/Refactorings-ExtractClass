@@ -1,2 +1,4 @@
-package PACKAGE_NAME;public class ProductCatalog {
+public class ProductCatalog {
+
+    public Product Product;
 }

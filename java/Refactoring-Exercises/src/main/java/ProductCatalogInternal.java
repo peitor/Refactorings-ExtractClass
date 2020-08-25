@@ -1,2 +1,3 @@
-package PACKAGE_NAME;public class ProductCatalogInternal {
+public class ProductCatalogInternal {
+    public ProductInternal productInternal;
 }
