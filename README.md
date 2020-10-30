@@ -7,3 +7,6 @@ Here a little Refactoring Exercise.
 3. Refactor the smells.
 4. Be happy
 
+Full blog post here
+https://blog.gfader.com/2020/08/resharper-vs-intellij-extract-class.html#more 
+
